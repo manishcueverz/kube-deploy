@@ -1,18 +1,15 @@
-apiVersion: autoscaling/v2beta2
+apiVersion: autoscaling/v1
 kind: HorizontalPodAutoscaler
 metadata:
-  name: python-api-autoscall
+  labels:
+    app.kubernetes.io/instance: backend
+  name: python-api-autoscale
+  namespace: default
 spec:
+  maxReplicas: 10
+  minReplicas: 1
+  targetCPUUtilizationPercentage: 50
   scaleTargetRef:
     apiVersion: apps/v1
     kind: Deployment
     name: python-api
-  minReplicas: 1
-  maxReplicas: 10
-  metrics:
-  - type: Resource
-    resource:
-      name: cpu
-      target:
-        type: Utilization
-        averageUtilization: 50
