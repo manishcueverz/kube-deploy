@@ -2,7 +2,7 @@ replicaCount: 1
 
 image:
   repository: manishcueverz/kube-frontend
-  tag: "08"
+  tag: "09"
 
 backendService:
   host: "python-api"
