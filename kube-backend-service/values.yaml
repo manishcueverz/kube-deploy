@@ -11,9 +11,3 @@ mysql:
   database: flaskreact
   user: helmdb
   password: Team1234#
-
-autoscaling:
-  enabled: true
-  minReplicas: 1
-  maxReplicas: 10
-  targetCPUUtilizationPercentage: 50
