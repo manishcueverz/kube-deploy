@@ -1,0 +1,13 @@
+replicaCount: 1
+
+image:
+  repository: manishcueverz/kube-frontend
+  tag: "08"
+
+backendService:
+  host: "python-api"
+  port: "8000"
+
+service:
+  type: ClusterIP
+  port: 3000

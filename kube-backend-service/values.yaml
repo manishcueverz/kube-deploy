@@ -1,0 +1,13 @@
+image:
+  repository: manishcueverz/kube-backend
+  tag: "04"
+
+service:
+  type: NodePort
+  port: 8000
+
+mysql:
+  host: my-mysql.default.svc.cluster.local
+  database: flaskreact
+  user: helmdb
+  password: Team1234#
