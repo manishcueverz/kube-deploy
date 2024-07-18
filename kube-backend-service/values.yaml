@@ -1,3 +1,5 @@
+replicaCount: 1
+
 image:
   repository: manishcueverz/kube-backend
   tag: "04"
