@@ -1,0 +1,21 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: python-api
+  namespace: argocd
+spec:
+  project: default
+  source:
+    repoURL: "https://github.com/manishcueverz/kube-deploy"
+    targetRevision: HEAD
+    path: kube-backend-service/
+    helm:
+      valueFiles:
+        - values.yaml
+  destination:
+    server: "https://kubernetes.default.svc"
+    namespace: default
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
