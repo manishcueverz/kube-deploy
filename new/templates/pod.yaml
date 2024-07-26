@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: {{ .Values.pod.name }}
+  namespace: {{ .Release.Namespace }}
+  annotations:
+    iam.amazonaws.com/role: {{ .Values.aws_iam_role_arn }}
+spec:
+  serviceAccountName: {{ .Values.serviceAccount.name }}
+  containers:
+  - name: {{ .Values.pod.container.name }}
+    image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+    ports:
+    - containerPort: {{ .Values.pod.container.port }}

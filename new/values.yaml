@@ -1,0 +1,29 @@
+serviceAccount:
+  name: my-service-account
+  annotations:
+    role: arn:aws:iam::<YOUR_AWS_ACCOUNT_ID>:role/<YOUR_IAM_ROLE_NAME>
+
+pod:
+  name: my-pod
+  annotations:
+    role: arn:aws:iam::<YOUR_AWS_ACCOUNT_ID>:role/<YOUR_IAM_ROLE_NAME>
+  container:
+    name: my-container
+    image: my-image:latest
+    port: 80
+
+aws_iam_role_arn: arn:aws:iam::873906884835:role/MyCdkProjectStack-MyRoleF48FFE04-VwsFGgXMyV6I
+
+replicaCount: 1
+
+image:
+  repository: manishcueverz/kube-frontend
+  tag: '10'
+
+backendService:
+  host: python-api
+  port: '8000'
+
+service:
+  type: ClusterIP
+  port: 3000
